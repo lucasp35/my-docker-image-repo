@@ -12,7 +12,6 @@ env:
   ALICLOUD_NAME_SPACE: "${{ secrets.ALICLOUD_NAME_SPACE }}"
   ALICLOUD_USERNAME: "${{ secrets.ALICLOUD_USERNAME }}"
   ALICLOUD_PASSWORD: "${{ secrets.ALICLOUD_PASSWORD }}"
-  IMAGE: "${REPO_NAME}:${IMAGE_TAG}"
   
 jobs:
   build-and-push:
@@ -28,11 +27,11 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t $ALICLOUD_REGISTRY/$ALICLOUD_NAME_SPACE/$IMAGE .
+          docker build -t $ALICLOUD_REGISTRY/$ALICLOUD_NAME_SPACE/${REPO_NAME}:${IMAGE_TAG} .
 
       - name: Push Docker image to Alibaba Cloud
         run: |
-          docker push $ALICLOUD_REGISTRY/$ALICLOUD_NAME_SPACE/$IMAGE
+          docker push $ALICLOUD_REGISTRY/$ALICLOUD_NAME_SPACE/${REPO_NAME}:${IMAGE_TAG}
 
       - name: Logout from Docker registry
         run: docker logout $ALIYUN_REGISTRY
