@@ -1,5 +1,7 @@
 ## 使用 GitHub Actions 将 Docker 镜像推送到自己的阿里云私有仓库，解决一些国外镜像无法拉取，并且国内的镜像源网站并未更新该镜像的情况 
-## 工作原理：借助GitHub Actions 自动从docker镜像网站拉取镜像并push到自己的阿里云私有仓库
+## 工作原理：借助GitHub Actions 自动从国外Docker镜像网站（hub.docker.com）拉取镜像并push到自己的阿里云私有仓库。 
+> 由于项目在GitHub上，本身就在国外，访问Docker网站无障碍，拉取对应的镜像后添加至自己的阿里云仓库，再从阿里云私有仓库下载，解决了网络不通的问题。
+
 ### 关于GitHub Actions
 >GitHub Actions 是 GitHub 提供的一种 CI/CD（持续集成和持续部署）服务，允许你自动化软件开发工作流。你可以创建工作流来构建、测试和部署代码，或者执行其他自动化任务，例如发布 GitHub Releases、发送通知等。
 ### GitHub Actions 重要组成
