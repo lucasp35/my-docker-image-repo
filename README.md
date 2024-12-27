@@ -12,7 +12,15 @@
 - 4.动作（Action）
 可重用的命令集合，可以在工作流中调用。GitHub 提供了许多预定义的动作，你也可以创建自定义动作。
 
+准备工作
+- [注册阿里云账号，创建个人实例，设置命名空间等](#chapter1)
+- [ 配置github，配置自动化任务，push镜像至私有仓库](#chapter2)
+- [拉取自己构建的镜像](#chapter3)
+- [查看镜像文件](#chapter4) 
 
+
+
+<a id = "chapter1"/>
 # 1. 阿里云镜像服务地址：
 > https://cr.console.aliyun.com/
 
@@ -33,6 +41,7 @@
 ![image](https://github.com/user-attachments/assets/2ad50f6a-65ff-4448-8674-2f116569e864)
 
 
+<a id = "chapter2"/>
 # 2 配置github 
 > 使用 GitHub Actions 将 Docker 镜像推送到自己的阿里云私有仓库
 ## Fork本项目
@@ -102,7 +111,8 @@ IMAGE_TAG=latest
 
 
 
-#3、 拉取自己构建的镜像：
+<a id = "chapter3"/>
+# 3 拉取自己构建的镜像：
 ![image](https://github.com/user-attachments/assets/913fa745-18fd-45b7-af27-badfbc42f920)
 
 管理镜像，里面告诉了如何拉取镜像，如果命名空间是私有的，需要先登录
@@ -123,8 +133,16 @@ $ docker pull registry.cn-hangzhou.aliyuncs.com/namespace/mysql:[镜像版本号
 ![image](https://github.com/user-attachments/assets/f4f6f206-be32-4d36-875c-7f20e051380b)
 
 
+<a id = "chapter4"/>
+# 4 查看镜像文件
+进入自己的阿里云个人仓库 -> 个人实例 - 仓库管理 -> 镜像仓库
+![image](https://github.com/user-attachments/assets/553c4379-2bfa-44f6-9d09-c1c2d1f07370)
 
-
+进入对应的容器
+````
+从Registry中拉取镜像
+$ docker pull registry.cn-hangzhou.aliyuncs.com/docker-image-pull/mysql:latest
+````
 
 
 
