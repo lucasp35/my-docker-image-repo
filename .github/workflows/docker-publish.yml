@@ -1,0 +1,38 @@
+# 名称
+name: Push Docker Image to Alibaba Cloud
+
+on:
+ # 出发的动作
+  push:
+    branches:
+      - main  # 触发工作流的分支
+
+env:
+  ALICLOUD_REGISTRY: "${{ secrets.ALICLOUD_REGISTRY }}"
+  ALICLOUD_NAME_SPACE: "${{ secrets.ALICLOUD_NAME_SPACE }}"
+  ALICLOUD_USERNAME: "${{ secrets.ALICLOUD_USERNAME }}"
+  ALICLOUD_PASSWORD: "${{ secrets.ALICLOUD_PASSWORD }}"
+  IMAGE: "${REPO_NAME}:${IMAGE_TAG}"
+  
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Log in to Alibaba Cloud Docker Registry
+        run: |
+          echo $ALICLOUD_PASSWORD | docker login --username=$ALICLOUD_USERNAME $ALICLOUD_REGISTRY --password-stdin
+
+      - name: Build Docker image
+        run: |
+          docker build -t $ALICLOUD_REGISTRY/$ALICLOUD_NAME_SPACE/$IMAGE .
+
+      - name: Push Docker image to Alibaba Cloud
+        run: |
+          docker push $ALICLOUD_REGISTRY/$ALICLOUD_NAME_SPACE/$IMAGE
+
+      - name: Logout from Docker registry
+        run: docker logout $ALIYUN_REGISTRY
