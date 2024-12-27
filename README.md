@@ -1,5 +1,4 @@
-# my-docker-image-repo
-my-docker-image-repo docker镜像
+## 使用 GitHub Actions 将 Docker 镜像推送到自己的阿里云私有仓库，解决一些国外镜像无法拉取，并且国内的镜像源网站并未更新该镜像的情况 
 
 
 
@@ -13,6 +12,12 @@ my-docker-image-repo docker镜像
 REPO_NAME=mysql
 IMAGE_TAG=latest
 ```
+![image](https://github.com/user-attachments/assets/78277fef-f53d-429a-8fda-12b42e5f0aa9)
+
+在该config.env中添加自己想添加的镜像文件
+![image](https://github.com/user-attachments/assets/31b0b9a1-28db-445c-b680-49f609480375)
+
+
 
 ## 2.2 创建 GitHub Actions 工作流文件：
 新建 GitHub 仓库，创建一个工作流文件（.github/workflows/ 目录下）。创建一个名为 docker-publish.yml 的文件。
@@ -77,3 +82,7 @@ jobs:
 
 ### 触发 GitHub Actions 工作流：
 每当向指定的分支（例如 main 分支）推送代码时，GitHub Actions 工作流将会自动运行，构建 Docker 镜像并推送到阿里云私有仓库。
+
+## 开始工作
+
+
