@@ -32,6 +32,10 @@ jobs:
           echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
         shell: bash
 
+      - name: Pull Docker image from Docker Hub
+        run: |
+          docker pull ${REPO_NAME}:${IMAGE_TAG}
+
       - name: Build Docker image
         run: |
           echo "image url: $ALICLOUD_REGISTRY/$ALICLOUD_NAME_SPACE/${REPO_NAME}:${IMAGE_TAG}"
