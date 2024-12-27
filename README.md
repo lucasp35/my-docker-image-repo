@@ -22,19 +22,19 @@ registry.cn-hangzhou.aliyuncs.com 是阿里云镜像服务地址
 fork一份到自己的仓库中
 
 
-## 2.1 设置 setting 添加环境变量
-action -> new repository secret
-![image](https://github.com/user-attachments/assets/e107b0c5-565a-4d9d-b2d1-fb645978efef)
-![image](https://github.com/user-attachments/assets/4d463aee-16d9-49e4-ab42-b71a3a392be3)
-![image](https://github.com/user-attachments/assets/7f63bc06-3d5d-47ed-ac48-e3dca4368607)
+## 2.1  配置 GitHub 仓库的 Secrets：
+在 GitHub 仓库的 **Settings** -> **Secrets and variables** -> Actions 下添加这些 Secrets, 以便工作流能够访问阿里云凭据：
 
 ### 2.1.1 配置 GitHub 仓库的 Secrets：
-在 GitHub 仓库中，配置以下 Secrets，以便工作流能够访问阿里云凭据：
-
 - ALICLOUD_USERNAME: 阿里云 Docker Registry 用户名。
 - ALICLOUD_PASSWORD: 阿里云 Docker Registry 密码。
 - ALICLOUD_REGISTRY: 阿里云地址 registry.cn-hangzhou.aliyuncs.com
 - ALICLOUD_NAME_SPACE：命名空间
+  
+![image](https://github.com/user-attachments/assets/e107b0c5-565a-4d9d-b2d1-fb645978efef)
+![image](https://github.com/user-attachments/assets/4d463aee-16d9-49e4-ab42-b71a3a392be3)
+![image](https://github.com/user-attachments/assets/7f63bc06-3d5d-47ed-ac48-e3dca4368607)
+
 
 
 ### 2.2.2 添加secrets
