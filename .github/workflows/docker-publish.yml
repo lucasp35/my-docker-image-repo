@@ -36,10 +36,11 @@ jobs:
         run: |
           docker pull ${REPO_NAME}:${IMAGE_TAG}
 
-      - name: Build Docker image
+      - name: Tag Docker image for Alibaba Cloud
         run: |
-          echo "image url: $ALICLOUD_REGISTRY/$ALICLOUD_NAME_SPACE/${REPO_NAME}:${IMAGE_TAG}"
-          docker build -t $ALICLOUD_REGISTRY/$ALICLOUD_NAME_SPACE/${REPO_NAME}:${IMAGE_TAG} .
+          docker tag $ALICLOUD_REGISTRY/$ALICLOUD_NAME_SPACE/${REPO_NAME}:${IMAGE_TAG}
+
+
 
       - name: Push Docker image to Alibaba Cloud
         run: |
