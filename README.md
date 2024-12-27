@@ -3,7 +3,9 @@
 
 # 1. 阿里云镜像服务地址：
 > https://cr.console.aliyun.com/
+
 注册自己的账号，进入容器镜像服务
+
 ![image](https://github.com/user-attachments/assets/571c1b9f-b5c3-4538-912a-491ad5558626)
 
 - 创建命名空间
@@ -11,8 +13,11 @@
 
 ![image](https://github.com/user-attachments/assets/06b410df-2f8e-4d9b-855f-9946f4c26cb7)
 
+
 > username是用户名
 > registry.cn-hangzhou.aliyuncs.com 是阿里云镜像服务地址
+
+
 ![image](https://github.com/user-attachments/assets/2ad50f6a-65ff-4448-8674-2f116569e864)
 
 
@@ -39,6 +44,7 @@
 
 ## 2.2  配置文件
 > 在仓库中创建一个配置文件，例如 config.env，其中包含仓库名称和标签等信息。例如：
+
 ```powershell
 # 比方mysql
 REPO_NAME=mysql
@@ -59,6 +65,7 @@ IMAGE_TAG=latest
 ### 2.3.2 查找镜像：
 在docerk网站查找你想要下载的镜像，注意对应的版本tag
 > https://hub.docker.com/
+
 ![image](https://github.com/user-attachments/assets/ea2e610e-10f1-4f9d-a379-567992004ba9)
 
 ![image](https://github.com/user-attachments/assets/8fb15b95-5716-4ed3-b07d-d53162bd3bb2)
@@ -74,11 +81,13 @@ IMAGE_TAG=latest
 
 > 校验是否运行成功
 
+
 ![image](https://github.com/user-attachments/assets/d491da29-4082-450a-93e3-a6e74accee49)
 
 
 ## 触发 GitHub Actions 工作流：
 > 每当向指定的分支（例如 main 分支）推送代码时（或者修改config.env 文件），GitHub Actions 工作流将会自动运行，构建 Docker 镜像并推送到阿里云私有仓库。
+
 
 
 #3、 拉取自己构建的镜像：
