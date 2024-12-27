@@ -81,4 +81,30 @@ https://hub.docker.com/
 每当向指定的分支（例如 main 分支）推送代码时（或者修改config.env 文件），GitHub Actions 工作流将会自动运行，构建 Docker 镜像并推送到阿里云私有仓库。
 
 
+#3、 拉取自己构建的镜像：
+![image](https://github.com/user-attachments/assets/913fa745-18fd-45b7-af27-badfbc42f920)
+
+管理镜像，里面告诉了如何拉取镜像，如果命名空间是私有的，需要先登录
+```
+$ docker login --username=username registry.cn-hangzhou.aliyuncs.com
+```
+再拉取镜像
+```
+$ docker pull registry.cn-hangzhou.aliyuncs.com/namespace/mysql:[镜像版本号]
+```
+
+![image](https://github.com/user-attachments/assets/ec4745df-b48f-43e5-91c6-8b1d7970a39a)
+
+
+
+**注意** 
+命名空间设置成公开后，拉取自己的仓库镜像就需要登录，否则，每次拉取镜像前需要登录以下
+![image](https://github.com/user-attachments/assets/f4f6f206-be32-4d36-875c-7f20e051380b)
+
+
+
+
+
+
+
 
