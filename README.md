@@ -37,11 +37,6 @@ fork一份到自己的仓库中
 
 
 
-### 2.2.2 添加secrets
-在 GitHub 仓库的 Settings -> Secrets and variables -> Actions 下添加这些 Secrets。
-
-
-
 ## 2.2  配置文件
 在仓库中创建一个配置文件，例如 config.env，其中包含仓库名称和标签等信息。例如：
 ```
