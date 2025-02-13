@@ -29,7 +29,9 @@ jobs:
         run: |
           source config.env
           echo "REPO_NAME=$REPO_NAME" >> $GITHUB_ENV
+          echo "REPO_SAVE_NAME=$REPO_SAVE_NAME" >> $GITHUB_ENV
           echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
+          echo "IMAGE_SAVE_TAG=$IMAGE_SAVE_TAG" >> $GITHUB_ENV
         shell: bash
 
       - name: Pull Docker image from Docker Hub
@@ -42,11 +44,11 @@ jobs:
 
       - name: Tag Docker image for Alibaba Cloud
         run: |
-          docker tag ${REPO_NAME}:${IMAGE_TAG} $ALICLOUD_REGISTRY/$ALICLOUD_NAME_SPACE/${REPO_NAME}:${IMAGE_TAG}
+          docker tag ${REPO_NAME}:${IMAGE_TAG} $ALICLOUD_REGISTRY/$ALICLOUD_NAME_SPACE/${REPO_SAVE_NAME}:${IMAGE_SAVE_TAG}
 
       - name: Push Docker image to Alibaba Cloud
         run: |
-          docker push $ALICLOUD_REGISTRY/$ALICLOUD_NAME_SPACE/${REPO_NAME}:${IMAGE_TAG}
+          docker push $ALICLOUD_REGISTRY/$ALICLOUD_NAME_SPACE/${REPO_SAVE_NAME}:${IMAGE_SAVE_TAG}
 
       - name: Logout from Docker registry
         run: docker logout $ALIYUN_REGISTRY
